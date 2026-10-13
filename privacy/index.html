@@ -44,7 +44,7 @@
 <h1>Privacy Policy</h1>
 <p class="meta">
   Developer: <strong>Dark Carrot</strong><br>
-  Last updated: <strong>6 September 2026</strong>
+  Last updated: <strong>13 October 2026</strong>
 </p>
 
 <p class="nav">English version below &middot; <a href="#turkce">Türkçe sürüm için tıklayın</a></p>
@@ -63,7 +63,11 @@
   </tr>
   <tr>
     <td>Color Up!</td><td><code>com.darkcarrot.color</code></td>
-    <td class="yes">Yes</td><td class="yes">Optional</td><td class="yes">Yes</td>
+    <td class="yes">Yes &mdash; Google AdMob (2.1)</td><td class="yes">Optional</td><td class="yes">Yes</td>
+  </tr>
+  <tr>
+    <td>Brick Out</td><td><code>com.darkcarrot.brickout</code></td>
+    <td class="yes">Yes &mdash; Unity Ads via Unity LevelPlay (2.2)</td><td class="no">No</td><td class="no">No</td>
   </tr>
 </table>
 </div>
@@ -73,10 +77,16 @@
   before that application is released.
 </p>
 
-<h2>2. Advertising (Google AdMob)</h2>
+<h2>2. Advertising</h2>
 <p>
-  Applications marked "Advertising" show banner and interstitial advertisements through Google AdMob. To serve
-  and measure ads, Google collects and processes:
+  Applications marked "Advertising" show advertisements through the advertising network named for them in the
+  table above. Only the subsection for that network applies to an application.
+</p>
+
+<h3>2.1 Google AdMob</h3>
+<p>
+  Applications that use Google AdMob show banner and interstitial advertisements. To serve and measure ads,
+  Google collects and processes:
 </p>
 <ul>
   <li>your device's advertising identifier (Android Advertising ID);</li>
@@ -94,6 +104,36 @@
   <strong>Your choice:</strong> you can reset or delete your advertising identifier, and opt out of ad
   personalisation, from your device settings (<em>Settings &rarr; Privacy &rarr; Ads</em> on most Android devices).
   Doing so does not remove ads, but they will no longer be personalised.
+</p>
+
+<h3>2.2 Unity Ads and Unity LevelPlay</h3>
+<p>
+  Applications that use Unity Ads show only <strong>optional rewarded video ads</strong>: in Brick Out, when you
+  lose your last ball you may choose to watch a short video to get one more ball. No ad is shown unless you tap to
+  watch one, and there are no banner or interstitial ads. Ads are delivered through Unity LevelPlay (Unity's ad
+  mediation platform, formerly ironSource), with Unity Ads as the ad network; both are provided by Unity
+  Technologies. To serve and measure ads, and to prevent fraud, Unity collects and processes:
+</p>
+<ul>
+  <li>your device's advertising identifier (Android Advertising ID) and other device identifiers;</li>
+  <li>your IP address and approximate location derived from it;</li>
+  <li>device and app information such as device model, operating system version, language, network type and
+    app version;</li>
+  <li>information about ads shown to you and your interactions with them (for example, whether a video was
+    watched to the end or tapped);</li>
+  <li>diagnostic data about how the advertising software is performing.</li>
+</ul>
+<p>
+  This data is collected by Unity as an independent controller. See the
+  <a href="https://unity.com/legal/game-player-and-app-user-privacy-policy" rel="noopener">Unity Game Player and App User Privacy Policy</a>, which also
+  explains how to make a privacy request to Unity.
+</p>
+<p>
+  <strong>Your choice:</strong> the first time you open the application, it asks whether our ad partners may use
+  your device data to show ads that suit you. The advertising software is not started until you answer. You can
+  change your answer at any time under <em>Settings &rarr; Personalized ads</em> in the application. If you decline,
+  rewarded ads remain available but are not personalised. You can also reset your advertising identifier or opt
+  out of ad personalisation from your device settings, as described in 2.1.
 </p>
 
 <h2>3. Leaderboards (Google Play Games Services)</h2>
@@ -122,7 +162,8 @@
 
 <h2>5. Data stored on your device only</h2>
 <p>
-  Preferences such as sound and music settings, chosen language, progress, scores and high scores are saved
+  Preferences such as sound and music settings, vibration, chosen language, your answer to the personalised-ads
+  question, progress, scores and high scores are saved
   locally on your device using standard application storage. This information is not transmitted to us or to
   anyone else, and it is deleted when you uninstall the application.
 </p>
@@ -142,6 +183,10 @@
   <tr><th>Permission</th><th>Why it is needed</th></tr>
   <tr><td><code>INTERNET</code></td><td>To load advertisements, to submit leaderboard scores when you sign in, and to download the settings file described in section 4.</td></tr>
   <tr><td><code>ACCESS_NETWORK_STATE</code></td><td>Used by the advertising and Google Play Games libraries to check whether a network connection is available before making a request.</td></tr>
+  <tr><td><code>AD_ID</code></td><td>Lets the advertising libraries read the Android Advertising ID (section 2).</td></tr>
+  <tr><td><code>ACCESS_ADSERVICES_TOPICS</code>, <code>ACCESS_ADSERVICES_ATTRIBUTION</code></td><td>Android's Privacy Sandbox advertising APIs, used by the advertising libraries on devices that support them (section 2).</td></tr>
+  <tr><td><code>WAKE_LOCK</code>, <code>RECEIVE_BOOT_COMPLETED</code>, <code>FOREGROUND_SERVICE</code></td><td>Applications that use Unity Ads only: requested by Android's WorkManager library, which the Unity Ads software uses to schedule its background tasks (such as sending ad delivery reports) reliably. None of them shows notifications or gives access to personal data.</td></tr>
+  <tr><td><code>VIBRATE</code></td><td>Brick Out only: a short vibration when you lose a ball, when a brick explodes or when you catch a harmful power-up. It can be turned off under <em>Settings &rarr; Vibration</em>.</td></tr>
 </table>
 </div>
 
@@ -157,22 +202,65 @@
 <ul>
   <li><strong>On-device data:</strong> removed when you uninstall the application.</li>
   <li><strong>Leaderboard data:</strong> held by Google Play Games Services and removable through the Google Play Games app.</li>
-  <li><strong>Advertising data:</strong> retained by Google according to its own policies and retention periods.</li>
+  <li><strong>Advertising data:</strong> retained by Google or Unity, depending on the application (section 2), according to their own policies and retention periods.</li>
   <li><strong>Hosting logs:</strong> any logs created when the settings file is downloaded are held by GitHub under its own privacy statement; we neither receive nor retain them.</li>
 </ul>
+
+<h3>How to request deletion of your data</h3>
+<p>
+  To request deletion of data relating to your use of a Dark Carrot application, follow the steps below. This
+  applies to Color Up!, Brick Out and every other application listed in section 1.
+</p>
+<ol>
+  <li>
+    <strong>Data stored on your device</strong> — uninstall the application. Preferences, progress and scores
+    saved on the device are deleted immediately by Android. Nothing is retained by us, because this data never
+    leaves your device.
+  </li>
+  <li>
+    <strong>Leaderboard data</strong> — open the Google Play Games application, go to
+    <em>Settings &rarr; Delete Play Games account data</em>, and follow the instructions there. Google deletes
+    your player profile and submitted scores. We cannot delete this data on your behalf because it is held by
+    Google, not by us.
+  </li>
+  <li>
+    <strong>Advertising data</strong> — open your device settings and go to
+    <em>Settings &rarr; Privacy &rarr; Ads</em>, then delete or reset your advertising ID. Google's handling and
+    deletion of advertising data is governed by the
+    <a href="https://policies.google.com/privacy" rel="noopener">Google Privacy Policy</a>; Unity's, for
+    applications that use Unity Ads, by the
+    <a href="https://unity.com/legal/game-player-and-app-user-privacy-policy" rel="noopener">Unity Game Player and App User Privacy Policy</a>, which
+    explains how to send Unity a deletion request.
+  </li>
+  <li>
+    <strong>Any other request</strong> — write to
+    <a href="mailto:darkcarrotgames@gmail.com?subject=Data%20deletion%20request">darkcarrotgames@gmail.com</a>
+    with the subject "Data deletion request" and the name of the application. We reply within 30 days.
+  </li>
+</ol>
+<p>
+  <strong>What is deleted and what is retained.</strong> We operate no user database and no server that stores
+  user data, so there is nothing on our side to delete: we hold no account, no profile, no progress and no
+  identifier belonging to you, and therefore we apply no additional retention period. The data described in
+  sections 2 and 3 is held by Google and is deleted according to Google's own retention periods, using the
+  steps above; for applications that use Unity Ads, the advertising data described in section 2.2 is held by
+  Unity and deleted according to Unity's own retention periods. Hosting logs described in section 4 belong to GitHub and are retained under the GitHub Privacy
+  Statement; we have no access to them.
+</p>
 
 <h2>10. Your rights</h2>
 <p>
   Depending on where you live, you may have the right to request access to, correction of, or deletion of
   personal data relating to you, and to object to or restrict its processing. Because we do not maintain user
-  accounts, we generally hold no data that identifies you personally. Requests concerning advertising data or
-  Play Games data are handled by Google; please use the links above. For anything else, contact us and we will
+  accounts, we generally hold no data that identifies you personally. Requests concerning advertising data are
+  handled by Google or Unity, and requests concerning Play Games data by Google; please use the links above. For anything else, contact us and we will
   respond as soon as we reasonably can.
 </p>
 
 <h2>11. Third-party services</h2>
 <ul>
   <li>Google AdMob — <a href="https://policies.google.com/privacy" rel="noopener">Privacy Policy</a></li>
+  <li>Unity Ads and Unity LevelPlay — <a href="https://unity.com/legal/game-player-and-app-user-privacy-policy" rel="noopener">Game Player and App User Privacy Policy</a></li>
   <li>Google Play Games Services — <a href="https://policies.google.com/privacy" rel="noopener">Privacy Policy</a></li>
   <li>GitHub Pages (static hosting of this page and of the settings files) — <a href="https://docs.github.com/en/site-policy/privacy-policies/github-privacy-statement" rel="noopener">Privacy Statement</a></li>
 </ul>
@@ -193,7 +281,7 @@
 <h1>Gizlilik Politikası</h1>
 <p class="meta">
   Geliştirici: <strong>Dark Carrot</strong><br>
-  Son güncelleme: <strong>6 Eylül 2026</strong>
+  Son güncelleme: <strong>13 Ekim 2026</strong>
 </p>
 
 <p>
@@ -210,7 +298,11 @@
   </tr>
   <tr>
     <td>Color Up!</td><td><code>com.darkcarrot.color</code></td>
-    <td class="yes">Var</td><td class="yes">İsteğe bağlı</td><td class="yes">Var</td>
+    <td class="yes">Var &mdash; Google AdMob (2.1)</td><td class="yes">İsteğe bağlı</td><td class="yes">Var</td>
+  </tr>
+  <tr>
+    <td>Brick Out</td><td><code>com.darkcarrot.brickout</code></td>
+    <td class="yes">Var &mdash; Unity LevelPlay üzerinden Unity Ads (2.2)</td><td class="no">Yok</td><td class="no">Yok</td>
   </tr>
 </table>
 </div>
@@ -220,10 +312,16 @@
   yayına girmeden önce güncellenir.
 </p>
 
-<h2>2. Reklamlar (Google AdMob)</h2>
+<h2>2. Reklamlar</h2>
 <p>
-  "Reklam" işaretli uygulamalar, Google AdMob aracılığıyla banner ve geçiş reklamları gösterir. Reklamların
-  sunulması ve ölçülmesi için Google şu verileri toplar ve işler:
+  "Reklam" işaretli uygulamalar, yukarıdaki tabloda kendileri için belirtilen reklam ağı üzerinden reklam
+  gösterir. Bir uygulama için yalnızca o ağın alt bölümü geçerlidir.
+</p>
+
+<h3>2.1 Google AdMob</h3>
+<p>
+  Google AdMob kullanan uygulamalar banner ve geçiş reklamları gösterir. Reklamların sunulması ve ölçülmesi
+  için Google şu verileri toplar ve işler:
 </p>
 <ul>
   <li>cihazınızın reklam kimliği (Android Reklam Kimliği);</li>
@@ -241,6 +339,39 @@
   <strong>Seçeneğiniz:</strong> Reklam kimliğinizi cihaz ayarlarından sıfırlayabilir veya silebilir, reklam
   kişiselleştirmesini kapatabilirsiniz (çoğu Android cihazda <em>Ayarlar &rarr; Gizlilik &rarr; Reklamlar</em>).
   Bu, reklamları kaldırmaz; yalnızca kişiselleştirilmelerini engeller.
+</p>
+
+<h3>2.2 Unity Ads ve Unity LevelPlay</h3>
+<p>
+  Unity Ads kullanan uygulamalar yalnızca <strong>isteğe bağlı ödüllü video reklamlar</strong> gösterir: Brick
+  Out'ta son topunuzu kaybettiğinizde, bir top daha kazanmak için kısa bir video izlemeyi seçebilirsiniz. Siz
+  izlemek için dokunmadıkça reklam gösterilmez; banner veya geçiş reklamı yoktur. Reklamlar, Unity'nin reklam
+  aracılık platformu Unity LevelPlay (eski adıyla ironSource) üzerinden, reklam ağı olarak Unity Ads ile sunulur;
+  ikisi de Unity Technologies tarafından sağlanır. Reklamların sunulması, ölçülmesi ve dolandırıcılığın
+  önlenmesi için Unity şu verileri toplar ve işler:
+</p>
+<ul>
+  <li>cihazınızın reklam kimliği (Android Reklam Kimliği) ve diğer cihaz kimlikleri;</li>
+  <li>IP adresiniz ve bundan türetilen yaklaşık konum;</li>
+  <li>cihaz modeli, işletim sistemi sürümü, dil, ağ türü ve uygulama sürümü gibi cihaz ve uygulama
+    bilgileri;</li>
+  <li>size gösterilen reklamlar ve bunlarla etkileşimleriniz hakkında bilgiler (örneğin bir videonun sonuna
+    kadar izlenip izlenmediği veya videoya dokunulup dokunulmadığı);</li>
+  <li>reklam yazılımının nasıl çalıştığına dair tanılama verileri.</li>
+</ul>
+<p>
+  Bu veriler Unity tarafından bağımsız veri sorumlusu sıfatıyla toplanır. Ayrıntılar ve Unity'ye gizlilik
+  talebinde bulunma yolu için
+  <a href="https://unity.com/legal/game-player-and-app-user-privacy-policy" rel="noopener">Unity Oyuncu ve Uygulama Kullanıcısı Gizlilik
+  Politikası</a>'na bakabilirsiniz.
+</p>
+<p>
+  <strong>Seçeneğiniz:</strong> Uygulamayı ilk açtığınızda, reklam ortaklarımızın size uygun reklamlar göstermek
+  için cihaz verilerinizi kullanıp kullanamayacağı sorulur. Reklam yazılımı siz yanıt verene kadar başlatılmaz.
+  Yanıtınızı istediğiniz zaman uygulamadaki <em>Ayarlar &rarr; Kişisel reklam</em> seçeneğinden
+  değiştirebilirsiniz. Reddederseniz ödüllü reklamlar yine kullanılabilir, ancak kişiselleştirilmez. Ayrıca
+  2.1'de anlatıldığı gibi reklam kimliğinizi cihaz ayarlarından sıfırlayabilir veya reklam kişiselleştirmesini
+  kapatabilirsiniz.
 </p>
 
 <h2>3. Skor tabloları (Google Play Games Services)</h2>
@@ -269,7 +400,8 @@
 
 <h2>5. Yalnızca cihazınızda saklanan veriler</h2>
 <p>
-  Ses ve müzik tercihi, seçilen dil, ilerleme, skorlar ve en yüksek skor gibi bilgiler standart uygulama deposu
+  Ses ve müzik tercihi, titreşim, seçilen dil, kişisel reklam sorusuna verdiğiniz yanıt, ilerleme, skorlar ve en
+  yüksek skor gibi bilgiler standart uygulama deposu
   kullanılarak yalnızca cihazınızda saklanır. Bu bilgiler bize veya başka birine iletilmez ve uygulamayı
   kaldırdığınızda silinir.
 </p>
@@ -289,6 +421,10 @@
   <tr><th>İzin</th><th>Neden gerekli</th></tr>
   <tr><td><code>INTERNET</code></td><td>Reklamları yüklemek, giriş yaptığınızda skor göndermek ve 4. bölümde açıklanan ayar dosyasını indirmek için.</td></tr>
   <tr><td><code>ACCESS_NETWORK_STATE</code></td><td>Reklam ve Google Play Games kütüphanelerinin istek göndermeden önce bağlantı olup olmadığını kontrol etmesi için.</td></tr>
+  <tr><td><code>AD_ID</code></td><td>Reklam kütüphanelerinin Android Reklam Kimliğini okuyabilmesi için (2. bölüm).</td></tr>
+  <tr><td><code>ACCESS_ADSERVICES_TOPICS</code>, <code>ACCESS_ADSERVICES_ATTRIBUTION</code></td><td>Android'in Privacy Sandbox reklam arayüzleri; destekleyen cihazlarda reklam kütüphaneleri tarafından kullanılır (2. bölüm).</td></tr>
+  <tr><td><code>WAKE_LOCK</code>, <code>RECEIVE_BOOT_COMPLETED</code>, <code>FOREGROUND_SERVICE</code></td><td>Yalnızca Unity Ads kullanan uygulamalar: Unity Ads yazılımının arka plan görevlerini (örneğin reklam gösterim raporlarının gönderilmesi) güvenilir şekilde zamanlamak için kullandığı Android WorkManager kütüphanesi tarafından istenir. Hiçbiri bildirim göstermez veya kişisel verilere erişim sağlamaz.</td></tr>
+  <tr><td><code>VIBRATE</code></td><td>Yalnızca Brick Out: top kaybettiğinizde, bir tuğla patladığında veya zararlı bir güçlendirme yakaladığınızda kısa bir titreşim. <em>Ayarlar &rarr; Titreşim</em> seçeneğinden kapatılabilir.</td></tr>
 </table>
 </div>
 
@@ -303,22 +439,65 @@
 <ul>
   <li><strong>Cihazdaki veriler:</strong> uygulamayı kaldırdığınızda silinir.</li>
   <li><strong>Skor tablosu verileri:</strong> Google Play Games Services'ta tutulur, Google Play Games uygulamasından silinebilir.</li>
-  <li><strong>Reklam verileri:</strong> Google tarafından kendi politikaları ve saklama süreleri uyarınca tutulur.</li>
+  <li><strong>Reklam verileri:</strong> uygulamaya göre Google veya Unity tarafından (2. bölüm), kendi politikaları ve saklama süreleri uyarınca tutulur.</li>
   <li><strong>Barındırma kayıtları:</strong> ayar dosyası indirilirken oluşan kayıtlar GitHub tarafından kendi gizlilik beyanı uyarınca tutulur; bize iletilmez ve tarafımızca saklanmaz.</li>
 </ul>
+
+<h3>Verilerinizin silinmesini nasıl talep edersiniz</h3>
+<p>
+  Bir Dark Carrot uygulamasını kullanımınıza ilişkin verilerin silinmesini talep etmek için aşağıdaki adımları
+  izleyin. Bu adımlar Color Up!, Brick Out ve 1. bölümde listelenen diğer tüm uygulamalar için geçerlidir.
+</p>
+<ol>
+  <li>
+    <strong>Cihazınızda saklanan veriler</strong> — uygulamayı kaldırın. Cihazda saklanan tercihler, ilerleme ve
+    skorlar Android tarafından anında silinir. Bu veriler hiçbir zaman cihazınızdan çıkmadığı için bizde bir
+    kopyası bulunmaz.
+  </li>
+  <li>
+    <strong>Skor tablosu verileri</strong> — Google Play Games uygulamasını açın,
+    <em>Ayarlar &rarr; Play Games hesap verilerini sil</em> yolunu izleyin ve oradaki yönergeleri uygulayın.
+    Google, oyuncu profilinizi ve gönderdiğiniz skorları siler. Bu veriler bizde değil Google'da tutulduğu için
+    sizin adınıza silmemiz mümkün değildir.
+  </li>
+  <li>
+    <strong>Reklam verileri</strong> — cihaz ayarlarınızı açıp
+    <em>Ayarlar &rarr; Gizlilik &rarr; Reklamlar</em> bölümünden reklam kimliğinizi silin veya sıfırlayın.
+    Reklam verilerinin Google tarafından işlenmesi ve silinmesi
+    <a href="https://policies.google.com/privacy" rel="noopener">Google Gizlilik Politikası</a>'na tabidir;
+    Unity Ads kullanan uygulamalarda Unity'nin işlemesi ise
+    <a href="https://unity.com/legal/game-player-and-app-user-privacy-policy" rel="noopener">Unity Oyuncu ve Uygulama Kullanıcısı Gizlilik
+    Politikası</a>'na tabidir ve Unity'ye silme talebinin nasıl gönderileceği orada açıklanır.
+  </li>
+  <li>
+    <strong>Diğer tüm talepler</strong> —
+    <a href="mailto:darkcarrotgames@gmail.com?subject=Veri%20silme%20talebi">darkcarrotgames@gmail.com</a>
+    adresine "Veri silme talebi" konusuyla ve uygulama adını belirterek yazın. 30 gün içinde yanıt veriyoruz.
+  </li>
+</ol>
+<p>
+  <strong>Ne silinir, ne saklanır.</strong> Kullanıcı veritabanı işletmiyoruz ve kullanıcı verisi saklayan bir
+  sunucumuz yok; dolayısıyla bizde silinecek bir şey bulunmuyor: size ait hesap, profil, ilerleme veya
+  tanımlayıcı tutmuyoruz ve bu nedenle ek bir saklama süremiz yok. 2. ve 3. bölümlerde açıklanan veriler
+  Google'da tutulur ve yukarıdaki adımlarla, Google'ın kendi saklama süreleri uyarınca silinir; Unity Ads
+  kullanan uygulamalarda 2.2. bölümde açıklanan reklam verileri Unity'de tutulur ve Unity'nin kendi saklama
+  süreleri uyarınca silinir. 4. bölümdeki
+  barındırma kayıtları GitHub'a aittir, GitHub Gizlilik Beyanı uyarınca saklanır ve bunlara erişimimiz yoktur.
+</p>
 
 <h2>10. Haklarınız</h2>
 <p>
   Bulunduğunuz ülkeye bağlı olarak, sizinle ilgili kişisel verilere erişme, bunların düzeltilmesini veya
   silinmesini isteme, işlenmesine itiraz etme ya da işlenmesini kısıtlama haklarına sahip olabilirsiniz.
   Kullanıcı hesabı tutmadığımız için elimizde sizi kişisel olarak tanımlayan bir veri genellikle bulunmaz.
-  Reklam verileri veya Play Games verileriyle ilgili talepler Google tarafından yürütülür; yukarıdaki
-  bağlantıları kullanabilirsiniz. Diğer tüm konularda bizimle iletişime geçin, makul en kısa sürede yanıt verelim.
+  Reklam verileriyle ilgili talepler Google veya Unity, Play Games verileriyle ilgili talepler Google tarafından
+  yürütülür; yukarıdaki bağlantıları kullanabilirsiniz. Diğer tüm konularda bizimle iletişime geçin, makul en kısa sürede yanıt verelim.
 </p>
 
 <h2>11. Üçüncü taraf hizmetler</h2>
 <ul>
   <li>Google AdMob — <a href="https://policies.google.com/privacy" rel="noopener">Gizlilik Politikası</a></li>
+  <li>Unity Ads ve Unity LevelPlay — <a href="https://unity.com/legal/game-player-and-app-user-privacy-policy" rel="noopener">Oyuncu ve Uygulama Kullanıcısı Gizlilik Politikası</a></li>
   <li>Google Play Games Services — <a href="https://policies.google.com/privacy" rel="noopener">Gizlilik Politikası</a></li>
   <li>GitHub Pages (bu sayfanın ve ayar dosyalarının barındırılması) — <a href="https://docs.github.com/en/site-policy/privacy-policies/github-privacy-statement" rel="noopener">Gizlilik Beyanı</a></li>
 </ul>
